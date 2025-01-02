@@ -1,0 +1,27 @@
+<div class="header d-flex justify-content-center p-5">
+    <h2>Appointment Booking System</h2>
+</div>
+<div class="container d-flex align-items-center justify-content-center pt-5">
+    <div class="inner-container" > 
+        <form [formGroup]="appoinmentForm"(ngSubmit)="onSubmit()">
+            <p>Name:</p>
+            <input formControlName="name" type="text">
+            <p>Phone Number:</p>
+            <input formControlName="p_no" type="text">
+            <p>date:</p>
+            <input (change)="getDatefun()" formControlName="date" type="date">
+            <p>Time slot:</p>
+            <select formControlName="time" type="ti">
+                <option value="">please select</option>
+               <option [value]="time" *ngFor="let time of updatedTimeSlotes.length ? updatedTimeSlotes : timeSlots">{{time}}</option>
+            </select>
+
+            <div class="pt-3">
+                <button [disabled]="!appoinmentForm.valid" type="submit">submit</button>
+            </div>
+            
+            
+        </form>
+        
+    </div>
+</div>
